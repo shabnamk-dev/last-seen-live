@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHIVES</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <section class="archive-container">
+
+        <h1 class="archive-title">
+            ARCHIVE DATABASE
+        </h1>
+
+        <p class="archive-subtitle">
+            Recovered files connected to Jinxed Streams.
+        </p>
+
+        <div class="files">
+
+            <div class="file-card" onclick="openPage('finalstream.html')">
+                <h2>FINAL_STREAM.mp4</h2>
+                <p>Recovered 3 days after disappearance.</p>
+            </div>
+
+            <div class="file-card" onclick="openPage('chatlogs.html')">
+                <h2>CHATLOG_09.txt</h2>
+                <p>Contains strange viewer interactions.</p>
+            </div>
+
+            <div class="file-card secret-file" id="secretFile" onclick="openPage('donotopen.html')">
+                <h2>DO_NOT_OPEN</h2>
+                <p>Encrypted private file.</p>
+            </div>
+
+            <div class="file-card" onclick="openPage('viewersLog.html')" >
+                <h2>VIEWER_LOGS.html</h2>
+                <p>Recovered messages from the final livestream.</p>
+            </div>
+
+            <div class="file-card" onclick="openPage('emails.html')">
+                <h2>EMAIL_DATABASE.eml</h2>
+                <p>Recovered anonymous emails sent after disappearance.</p>
+            </div>
+
+            <div class="file-card locked-file" onclick="openLockedFile()">
+                <h2>LOCKED_ARCHIVE.zip</h2>
+                <p>Password protected recovered file.</p>
+            </div>
+
+        </div>
+
+        <div class="hidden-message" id="hiddenMessage">
+            <p>
+                You stayed longer than the others.
+            </p>
+        </div>
+
+    </section>
+
+    <div class="progress-container">
+
+    <p id="progressText">
+        INVESTIGATION UNDERSTANDING: 0%
+    </p>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

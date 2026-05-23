@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHATLOG_09</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <section class="chat-container">
+
+        <h1>CHATLOG_09.txt</h1>
+
+        <div class="chat-box" id="chatLogBox">
+
+        </div>
+
+        <!-- Investigation -->
+
+        <div class="investigation-box">
+
+            <p>
+                There's a difference between noticing someone and holding
+                onto them.... 
+            </p>
+
+            <input
+                type="text"
+                id="chatAnswer"
+                placeholder="TYPE YOUR INTERPRETATION"
+            >
+
+            <button
+                onclick="checkClue(
+                        'chatClue',
+                        'chatAnswer',
+                        ['remember', 'remembering', 'remind']
+                )">
+                SUBMIT
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Progress -->
+
+    <div class="progress-container">
+
+        <p id="progressText">
+            INVESTIGATION UNDERSTANDING: 0%
+        </p>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#050505;
+    color:#e5e5e5;
+    font-family:'IBM Plex Mono', monospace;
+    overflow-x:hidden;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* Background Noise */
+
+.noise{
+    position:fixed;
+    inset:0;
+    background:url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    opacity:0.08;
+    pointer-events:none;
+}
+
+/* Chapter Layout */
+
+.chapter-page{
+    width:100%;
+    max-width:900px;
+    padding:80px 30px 160px;
+    z-index:2;
+    text-align:center;
+}
+
+/* Chapter Number */
+
+.chapter-number{
+    color:#ff4d4d;
+    letter-spacing:4px;
+    margin-bottom:20px;
+    font-size:0.9rem;
+}
+
+/* Title */
+
+.chapter-page h1{
+    font-size:4rem;
+    margin-bottom:30px;
+    letter-spacing:6px;
+    font-weight:500;
+}
+
+/* Divider */
+
+.chapter-line{
+    width:120px;
+    height:2px;
+    background:#ff4d4d;
+    margin:0 auto 50px;
+}
+
+/* Story Box */
+
+.story-box{
+    border:1px solid #222;
+    background:#0a0a0a;
+    padding:50px;
+    line-height:2.2;
+    color:#d1d5db;
+    text-align:left;
+}
+
+/* Paragraphs */
+
+.story-box p{
+    margin-bottom:25px;
+}
+
+/* Red Text */
+
+.red-text{
+    color:#ff4d4d;
+}
+
+/* Flicker Text */
+
+.glitch-text{
+    color:#ff4d4d;
+    animation:flicker 2s infinite;
+    letter-spacing:2px;
+}
+
+/* Button */
+
+button{
+    margin-top:40px;
+    background:transparent;
+    border:1px solid #e5e5e5;
+    color:#e5e5e5;
+    padding:16px 40px;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+    letter-spacing:2px;
+    font-family:'IBM Plex Mono', monospace;
+}
+
+button:hover{
+    background:#e5e5e5;
+    color:#050505;
+}
+
+/* Flicker */
+
+@keyframes flicker{
+
+    0%{
+        opacity:1;
+    }
+
+    50%{
+        opacity:0.5;
+    }
+
+    100%{
+        opacity:1;
+    }
+
+}
+
+/** Chapter Image **/
+
+.chapter-image{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin:40px 0;
+}
+
+.chapter-image img{
+    width:100%;
+    max-width:950px;
+
+    border-radius:20px;
+
+    border:2px solid rgba(255, 77, 77, 0.933);
+
+    box-shadow:
+    0 0 25px rgba(255, 77, 77, 0.933);
+
+    opacity:0.95;
+
+    transition:0.4s ease;
+}
+
+.chapter-image img:hover{
+    transform:scale(1.01);
+
+    box-shadow:
+    0 0 40px rgba(255, 77, 77, 0.933);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .chapter-page{
+        padding:60px 20px 120px;
+    }
+
+    .chapter-page h1{
+        font-size:2.3rem;
+        letter-spacing:3px;
+    }
+
+    .story-box{
+        padding:30px;
+        line-height:2;
+    }
+
+    button{
+        width:100%;
+    }
+
+}

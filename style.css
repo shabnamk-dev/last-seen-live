@@ -1,0 +1,681 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:#e5e5e5;
+    font-family:'IBM Plex Mono', monospace;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+    padding:40px 20px 140px;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.noise{
+    position:fixed;
+    inset:0;
+    background:url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+    opacity:0.08;
+    pointer-events:none;
+    z-index:0;
+}
+
+/* =========================
+   GLOBAL LAYOUT
+========================= */
+
+.container,
+.archive-container,
+.chat-container,
+.locked-container,
+.stream-page,
+.email-container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    position:relative;
+    z-index:2;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1{
+    font-size:clamp(2.5rem, 8vw, 5rem);
+    font-weight:500;
+    letter-spacing:4px;
+    margin-bottom:20px;
+}
+
+h2{
+    font-size:1.2rem;
+    margin-bottom:15px;
+}
+
+p{
+    line-height:1.8;
+}
+
+.status{
+    color:#ff4d4d;
+    margin-bottom:20px;
+    letter-spacing:3px;
+    font-size:0.9rem;
+    animation:flicker 2s infinite;
+}
+
+.description,
+.archive-subtitle,
+.locked-text{
+    color:#9ca3af;
+    margin-bottom:40px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button{
+    background:transparent;
+    border:1px solid #e5e5e5;
+    color:#e5e5e5;
+    padding:15px 30px;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+    letter-spacing:2px;
+    font-family:'IBM Plex Mono', monospace;
+}
+
+button:hover{
+    background:#e5e5e5;
+    color:#050505;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input{
+    width:100%;
+    padding:16px;
+    background:#050505;
+    border:1px solid #222;
+    color:#e5e5e5;
+    font-family:'IBM Plex Mono', monospace;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus{
+    border-color:#ff4d4d;
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress-container{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(90%, 700px);
+    z-index:999;
+}
+
+#progressText{
+    margin-bottom:10px;
+    color:#9ca3af;
+    letter-spacing:2px;
+    font-size:0.9rem;
+}
+
+.progress-bar{
+    width:100%;
+    height:12px;
+    background:#111;
+    border:1px solid #222;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+    background:#ff4d4d;
+    transition:0.5s;
+}
+
+/* =========================
+   FILES GRID
+========================= */
+
+.files,
+.email-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:20px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.file-card,
+.email-card,
+.email-box{
+    border:1px solid #222;
+    background:#0d0d0d;
+    padding:25px;
+    transition:0.3s;
+}
+
+.file-card,
+.email-card{
+    cursor:pointer;
+}
+
+.file-card:hover,
+.email-card:hover,
+.email-box:hover{
+    border-color:#ff4d4d;
+    transform:translateY(-5px);
+}
+
+.file-card p,
+.email-card span{
+    color:#9ca3af;
+}
+
+/* =========================
+   CHAT SECTION
+========================= */
+
+.chat-box{
+    border:1px solid #222;
+    background:#0a0a0a;
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.chat-message{
+    padding:18px;
+    border-left:2px solid #222;
+    background:#080808;
+    color:#d1d5db;
+    transition:0.3s;
+}
+
+.chat-message:hover{
+    border-color:#ff4d4d;
+    transform:translateX(5px);
+}
+
+.user{
+    color:#ff4d4d;
+    margin-right:8px;
+}
+
+.strange{
+    color:#ff4d4d;
+    border-left:2px solid #ff4d4d;
+    animation:flicker 2s infinite;
+}
+
+/* =========================
+   INVESTIGATION BOX
+========================= */
+
+.investigation-box{
+    margin-top:40px;
+    border:1px solid #222;
+    background:#0a0a0a;
+    padding:30px;
+}
+
+.investigation-box p{
+    margin-bottom:20px;
+    color:#9ca3af;
+}
+
+.investigation-box input{
+    margin-bottom:20px;
+}
+
+/* =========================
+   FINAL STREAM
+========================= */
+
+.stream-layout{
+    display:flex;
+    gap:30px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+}
+
+.video-player{
+    flex:2;
+    min-width:300px;
+}
+
+.video-screen{
+    background:#000;
+    border:1px solid #222;
+    min-height:500px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+    padding:20px;
+    text-align:center;
+}
+
+.stream-text{
+    font-size:2rem;
+    letter-spacing:3px;
+}
+
+.timestamp{
+    position:absolute;
+    bottom:20px;
+    right:20px;
+    color:#777;
+}
+
+.live-chat{
+    flex:1;
+    min-width:300px;
+    border:1px solid #222;
+    background:#0a0a0a;
+    padding:20px;
+}
+
+.chat-messages p{
+    margin-bottom:20px;
+}
+
+.chat-messages span{
+    color:#ff4d4d;
+}
+
+.red-chat{
+    color:#ff4d4d;
+    animation:flicker 2s infinite;
+}
+
+#playBtn{
+    margin-top:30px;
+}
+
+/* =========================
+   EMAILS
+========================= */
+
+.email-subject,
+.sender{
+    color:#ff4d4d;
+    letter-spacing:2px;
+}
+
+.email-content{
+    color:#d1d5db;
+    line-height:2;
+}
+
+.email-content p{
+    margin-bottom:15px;
+}
+
+/* =========================
+   SECRET CONTENT
+========================= */
+
+.hidden-message,
+.secret-content{
+    margin-top: 50px;
+    opacity:0;
+    pointer-events: none;
+    transition:1s;
+    line-height: 2;
+}
+
+.hidden-message{
+    margin-top:50px;
+    color:#ff4d4d;
+    letter-spacing:2px;
+}
+
+.secret-content{
+    margin-top:40px;
+    line-height:2;
+}
+
+.red-text{
+    color:#ff4d4d;
+}
+
+.final-hint{
+    color:#7a7a7a;
+    font-size:1.1rem;
+    margin-top:10px;
+    letter-spacing:1px;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.error-message{
+    margin-top:20px;
+    color:#ff4d4d;
+    letter-spacing:2px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes flicker{
+
+    0%{
+        opacity:1;
+    }
+
+    50%{
+        opacity:0.4;
+    }
+
+    100%{
+        opacity:1;
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    body{
+        padding:30px 15px 140px;
+    }
+
+    h1{
+        letter-spacing:2px;
+    }
+
+    .archive-title{
+        font-size:2.5rem;
+    }
+
+    .stream-layout{
+        flex-direction:column;
+    }
+
+    .video-screen{
+        min-height:350px;
+    }
+
+    .stream-text{
+        font-size:1.3rem;
+    }
+
+    .story-content{
+        padding:25px;
+    }
+
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    body{
+        align-items:flex-start;
+        padding:20px 0;
+    }
+
+    /* General Containers */
+
+    .container,
+    .archive-container,
+    .chat-container,
+    .email-container,
+    .locked-container,
+    .stream-page{
+        width:100%;
+        padding:25px 20px 120px;
+    }
+
+    /* Titles */
+
+    h1{
+        font-size:2.5rem;
+        letter-spacing:2px;
+    }
+
+    .archive-title{
+        font-size:2.5rem;
+    }
+
+    .stream-page h1,
+    .chat-container h1,
+    .locked-container h1{
+        font-size:2rem;
+    }
+
+    /* Paragraphs */
+
+    .description,
+    .archive-subtitle,
+    .locked-text,
+    .investigation-box p{
+        font-size:0.95rem;
+        line-height:1.7;
+    }
+
+    /* Buttons */
+
+    button{
+        width:100%;
+        padding:16px;
+        font-size:0.95rem;
+    }
+
+    /* Cards */
+
+    .files,
+    .email-list{
+        grid-template-columns:1fr;
+    }
+
+    .file-card,
+    .email-card{
+        padding:22px;
+    }
+
+    /* Stream Layout */
+
+    .stream-layout{
+        flex-direction:column;
+    }
+
+    .video-player,
+    .live-chat{
+        width:100%;
+    }
+
+    .video-screen{
+        height:280px;
+    }
+
+    .stream-text{
+        font-size:1.2rem;
+        text-align:center;
+        padding:0 10px;
+    }
+
+    /* Chat */
+
+    .chat-box{
+        padding:20px;
+    }
+
+    .chat-message{
+        font-size:0.9rem;
+        padding:15px;
+    }
+
+    /* Investigation Box */
+
+    .investigation-box{
+        padding:20px;
+    }
+
+    .investigation-box input,
+    .locked-container input{
+        padding:14px;
+        font-size:0.9rem;
+    }
+
+    /* Popup */
+
+    .story-content{
+        padding:25px;
+    }
+
+    .story-content h2{
+        font-size:1.4rem;
+    }
+
+    /* Progress Bar */
+
+    .progress-container{
+        width:90%;
+        bottom:15px;
+    }
+
+    #progressText{
+        font-size:0.75rem;
+        text-align:center;
+    }
+
+}
+
+/* Intro Image */
+.intro-image{
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+
+    margin:45px 0;
+
+    position:relative;
+}
+
+.intro-image::after{
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.15),
+        rgba(0,0,0,0.55)
+    );
+
+    pointer-events:none;
+
+    border-radius:12px;
+}
+
+.intro-image img{
+    width:100%;
+    max-width:1200px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    object-fit:cover;
+
+    filter:
+    brightness(0.72)
+    contrast(1.15)
+    saturate(0.85)
+    grayscale(0.15);
+
+    box-shadow:
+    0 0 40px rgba(0,0,0,0.9),
+    0 0 120px rgba(0,0,0,0.8);
+
+    transition:0.5s ease;
+
+    opacity:0.9;
+}
+
+.intro-image img:hover{
+
+    filter:
+    brightness(0.82)
+    contrast(1.2)
+    saturate(0.9);
+
+    transform:scale(1.005);
+
+}
+
+/* Chapter Image */
+
+.chapter-image{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin:40px 0;
+}
+
+.chapter-image img{
+    width:100%;
+    max-width:950px;
+
+    border-radius:20px;
+
+    border:2px solid rgba(255, 77, 77, 0.933);
+
+    box-shadow:
+    0 0 25px rgba(255, 77, 77, 0.933);
+
+    opacity:0.95;
+
+    transition:0.4s ease;
+}
+
+.chapter-image img:hover{
+    transform:scale(1.01);
+
+    box-shadow:
+    0 0 40px rgba(255, 77, 77, 0.933);
+}

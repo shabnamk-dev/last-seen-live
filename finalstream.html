@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINAL STREAM</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <section class="stream-page">
+
+        <h1>FINAL_STREAM.mp4</h1>
+
+        <div class="stream-layout">
+
+            <!-- Fake Video -->
+
+            <div class="video-player">
+
+                <div class="video-screen" id="videoScreen">
+
+                    <p class="stream-text">
+                        STREAM RECOVERED
+                    </p>
+
+                    <p class="timestamp">
+                        02:13:09 AM
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Fake Chat -->
+
+            <div class="live-chat">
+
+                <h2>LIVE CHAT</h2>
+
+                <div class="chat-messages" id="chatMessages">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button id="playBtn">
+            PLAY RECORDING
+        </button>
+
+        <!-- Investigation -->
+
+        <div class="investigation-box">
+
+            <p>
+                One Word keeps appearing... Pay attention to it.
+            </p>
+
+            <input
+                type="text"
+                id="streamAnswer"
+                placeholder="TYPE YOUR INTERPRETATION"
+            >
+
+            <button
+                onclick="checkClue(
+                        'streamClue',
+                        'streamAnswer',
+                        ['waiting', 'leave', 'wait', 'person']
+                )">
+                SUBMIT
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Progress -->
+
+    <div class="progress-container">
+
+        <p id="progressText">
+            INVESTIGATION UNDERSTANDING: 0%
+        </p>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

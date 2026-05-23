@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMAIL DATABASE</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <section class="email-container">
+
+        <h1>EMAIL DATABASE</h1>
+
+        <div class="email-list">
+
+            <div class="email-card" onclick="openEmail1()">
+                <p class="sender">UNKNOWN_SENDER</p>
+                <h2>you stayed.</h2>
+                <span>Received: 2:13 AM</span>
+            </div>
+
+            <div class="email-card" onclick="openEmail2()">
+                <p class="sender">UNKNOWN_SENDER</p>
+                <h2>do you remember the stream?</h2>
+                <span>Received: 3:47 AM</span>
+            </div>
+
+        </div>
+
+        <div class="email-content" id="emailContent">
+
+            <p>
+                Select a recovered email.
+            </p>
+
+        </div>
+        <div class="investigation-box">
+
+    <p>
+        Some people don't know when to let go...
+    </p>
+
+    <input
+        type="text"
+        id="emailAnswer"
+        placeholder="TYPE YOUR INTERPRETATION"
+    >
+
+    <button
+        onclick="checkClue(
+            'emails',
+            'emailAnswer',
+            [
+                'attached',
+                'emotionally attached',
+                'attach'
+            ]
+        )"
+    >
+        SUBMIT
+    </button>
+
+</div>
+
+    </section>
+<div class="progress-container">
+
+    <p id="progressText">
+        INVESTIGATION UNDERSTANDING: 0%
+    </p>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <button id="finalTruthBtn" 
+    onclick="openLockedFile()" style="display:none">THE FINAL TRUTH</button>
+    
+
+</div>
+    <script src="script.js"></script>
+
+</body>
+</html>

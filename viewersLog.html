@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIEWER_LOGS</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <section class="chat-container">
+
+        <h1>VIEWER_LOGS.html</h1>
+
+        <div class="chat-box">
+
+            <div class="chat-message">
+                <span class="user">ghostgirl22</span><br>
+                active in 31 streams<br>
+                average watch time: 42 minutes
+            </div>
+
+            <div class="chat-message">
+                <span class="user">pixelghost</span><br>
+                active in 27 streams<br>
+                average watch time: 38 minutes
+            </div>
+
+            <div class="chat-message">
+                <span class="user">angelbyte</span><br>
+                active in 25 streams<br>
+                average watch time: 40 minutes
+            </div>
+
+            <div class="chat-message">
+                <span class="user">K1NGVOID</span><br>
+                active in 18 streams<br>
+                average watch time: 19 minutes
+            </div>
+
+            <div class="chat-message strange">
+                <span class="user">UNKNOWN_USER</span><br>
+                active in every archived stream<br>
+                remained connected until the stream ended
+            </div>
+
+            <div class="chat-message strange">
+                <span class="user">SYSTEM FLAG</span><br>
+                stream continued running after nearly everyone disconnected.
+            </div>
+
+        </div>
+
+        <!-- Investigation -->
+
+        <div class="investigation-box">
+
+            <p>
+                Everyone eventually disconnected. 
+                One person didn't.
+            </p>
+
+            <input
+                type="text"
+                id="viewerAnswer"
+                placeholder="TYPE YOUR INTERPRETATION"
+            >
+
+            <button
+                onclick="checkClue(
+                        'viewerClue',
+                        'viewerAnswer',
+                        ['stayed', 'stay']
+                )">
+                SUBMIT
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Progress -->
+
+    <div class="progress-container">
+
+        <p id="progressText">
+            INVESTIGATION UNDERSTANDING: 0%
+        </p>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+    </div>
+
+ 
+    <script src="script.js"></script>
+
+</body>
+</html>

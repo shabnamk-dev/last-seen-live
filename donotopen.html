@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DO_NOT_OPEN</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <section class="locked-container">
+
+        <h1>DO_NOT_OPEN</h1>
+
+        <p class="locked-text">
+            Recovered fragments from a deleted private folder.
+        </p>
+
+        <div class="chat-box">
+
+            <div class="chat-message">
+                <span class="user">STREAM TITLE DRAFT:</span>
+                "staying online a little longer tonight"
+            </div>
+
+            <div class="chat-message">
+                <span class="user">STREAM TITLE DRAFT:</span>
+                "quiet stream. just talking tonight"
+            </div>
+
+            <div class="chat-message">
+                <span class="user">UNSENT NOTE:</span>
+                "i think some viewers understand me more than real people do."
+            </div>
+
+            <div class="chat-message">
+                <span class="user">DELETED REMINDER:</span>
+                "remember usernames better."
+            </div>
+
+            <div class="chat-message strange">
+                <span class="user">UNFINISHED DRAFT:</span>
+                "sometimes i keep talking even after the game ends.
+                Gosh this makes me feel more Lonely."
+            </div>
+
+            <div class="chat-message strange">
+                <span class="user">UNFINISHED DRAFT:</span>
+                "i think i hate silence more than i should."
+            </div>
+
+        </div>
+
+        <!-- Investigation -->
+
+        <div class="investigation-box">
+
+            <p>
+                These messages were never meant to be public.
+                What do they reveal about Jinxed?
+            </p>
+
+            <input
+                type="text"
+                id="draftAnswer"
+                placeholder="TYPE YOUR INTERPRETATION"
+            >
+
+            <button
+                onclick="checkClue(
+                        'draftClue',
+                        'draftAnswer',
+                        ['lonely', 'alone', 'attached']
+                )">
+                SUBMIT
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Progress -->
+
+    <div class="progress-container">
+
+        <p id="progressText">
+            INVESTIGATION UNDERSTANDING: 0%
+        </p>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+    </div>
+
+    <!-- Story Popup -->
+
+    <div class="story-popup" id="draftPopup">
+
+        <div class="story-content">
+
+            <h2>Recovered Memory</h2>
+
+            <p id="draftStory"></p>
+
+            <button onclick="closePopup('draftPopup')">
+                CLOSE
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
