@@ -43,7 +43,7 @@ HOW TO PLAY
 5. Discover the truth behind Jinxed Streams
 
 PLAY THE GAME:
-https://yourusername.github.io/last-seen-live/
+[https://yourusername.github.io/last-seen-live/](https://shabnamk-dev.github.io/last-seen-live/)
 
 CREATOR
 Created by Shabnamk-Dev
