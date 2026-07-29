@@ -46,9 +46,5 @@ PLAY THE GAME:
 https://yourusername.github.io/last-seen-live/
 
 CREATOR
-Created by Shabnam.
+Created by Shabnamk-Dev
 
-FINAL NOTE
-
-Some people leave when things start feeling uncomfortable.
-You didn't.
